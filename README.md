@@ -22,6 +22,7 @@ A straightforward toggleable AutoHotkey v2.0 macro script that allows the user t
 
 There are several methods to install these kind of scripts from GitHub; however, we'll just focus on the most commonly used methods.
 
+**METHOD 1**
 > Direct download method
 
 **1.** Download the latest script directly from this link
@@ -30,6 +31,7 @@ https://github.com/xayanide/momentary-switch-rapid-clicker-macro/releases/latest
 
 **2.** Proceed to [Usage](#usage) section.
 
+**METHOD 2**
 > This method involves creating and saving a new file to the location you want.
 
 **1.** Copy everything, all the code from this link
