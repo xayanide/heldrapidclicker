@@ -23,20 +23,22 @@ A straightforward toggleable AutoHotkey V2 macro script that allows the user to 
 There are several methods to install these kind of scripts from GitHub; however, we'll just focus on the most commonly used method.
 
 This method involves creating and saving a new file to the location you want.
-1. Copy everything, all the code from this link
+**1.** Copy everything, all the code from this link
 - https://raw.githubusercontent.com/xayanide/momentary-switch-rapid-clicker-macro/refs/heads/master/momentary-switch-rapid-clicker-macro.ahk
  
-1. Open up `Notepad`, `Notepad++` or any other text editor you're comfortable using.
+**2.** Open up `Notepad`, `Notepad++` or any other text editor you're comfortable using.
  
-2. Paste the code you have copied (ensure you have copied and pasted everything)
+**3.** Paste the code you have copied (ensure you have copied and pasted everything)
 > [!TIP]
-> You can modify configuration while you're at it. Only if you know what you're doing.
+> You can modify the configuration while you're at it. Only if you know what you're doing.
  
-3. On your text editor, there should be `File` at the top-left, hover your mouse cursor over that then left-click on `Save it as`.
+**4.** On your text editor, there should be `File` at the top-left, hover your mouse cursor over that then left-click on `Save it as`.
 
-4. A window will pop-up, choose where you want to save the file. Below are the things you can input
-**File Name:** Any name will work, but make sure the file's name ends with `.ahk`
-**Save as type:** All Files (*.*)
+**5.** A window will pop-up, choose where you want to save the file. Below are the things you can modify
+
+`File Name:` Choose your desired name for the file, but make sure the file's name ends with `.ahk`
+`Save as type:` All Files (*.*)
+
 > [!TIP]
 > - Save it somewhere you can easily find and remember, such us the Desktop.
 > - There are keyboard shortcuts to `Save` or `Save as` text documents.
