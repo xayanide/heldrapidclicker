@@ -44,7 +44,7 @@ config["CLICK_INTERVAL"] := 10
 ;   WARNING: SETTING THE COMBINATION ABOVE IS NOT RECOMMENDED AS IT CAN SIGNIFICANTLY OVERWHELM YOUR SYSTEM'S INPUTS
 ;   Default value
 ;   false
-config["USE_FAST_MODE"] := false
+config["USE_FAST_MODE"] := true
 
 ; --------------------
 ; Script
@@ -65,8 +65,8 @@ UpdateSystemTrayIcon()
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
-    FilePath := "imageres.dll"
-    TraySetIcon FilePath, iconNumber
+    filePath := "imageres.dll"
+    TraySetIcon filePath, iconNumber
 }
 
 ; Updates the script's system tray icon tooltip text
