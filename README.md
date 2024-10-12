@@ -53,20 +53,20 @@ This method involves creating and saving a new file to the location you want.
 
 **Running the script**
 
-- Double left-click the `.ahk` file to run the script or right-click the `.ahk` file then left-click `Run script`.
+**1.** Double left-click the `.ahk` file to run the script or right-click the `.ahk` file then left-click `Run script`.
 > [!TIP]
 > The script will continue running in the background until the user shutdowns the computer or manually exits out the script.
 
 **Using the script**
 
-- Toggle it on and off by pressing the keyboard combination `CTRL + E`. This is configurable.
-- Hold press your left mouse button.
+**1.** Toggle it on and off by pressing the keyboard combination `CTRL + E`. This is configurable.
+**2.** *Hold press your left mouse button.
 > [!WARNING]
 > - Be cautious on where you click while the macro is toggled on!
 
 **Closing the script**
 
-To close the script completely, navigate to your system's taskbar, find and right-click its system tray icon and left-click on `Exit`
+**1.** Navigate to your system's taskbar, find and right-click its system tray icon and left-click on `Exit`
 
 ## Contributing
 Anything meaningful would be great! Make sure the checks are passing, and there are no reasons to deny your pull request.
