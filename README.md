@@ -9,14 +9,14 @@ A straightforward toggleable AutoHotkey V2 macro script that allows the user to 
 ## Features
 - Hold your left mouse button to rapidly perform left-clicks with `10ms` of delay in between by default. In 5 seconds CPS tests, it can click as fast up to 60 CPS max.
 - Toggle the macro on or off with the keyboard shortcut `CTRL + E`, this is configurable!
-- System tray icon and tooltip when hovered that indicates whether the macro is turned on or off.
-- A cursor tooltip that appears at the bottom right of the user's cursor when the macro is toggled.
+- System tray icon and tooltip text that appears when hovered. This indicates whether the macro is turned on or off.
+- A cursor tooltip that appears at the bottom right of the user's cursor right when the macro is toggled.
 
 ### Credits
 - https://www.autohotkey.com/docs/v2
 
 ## Prerequisites
-- AutoHotkey V2.0 and later versions.
+- AutoHotkey V2.0 or later versions.
 
 ## Installation
 
@@ -64,7 +64,7 @@ This method involves creating and saving a new file to the location you want.
 
 **Closing the script**
 
-To close the script completely. Navigate to your system's taskbar, find and right-click its system tray icon and left-click on `Exit`
+To close the script completely, navigate to your system's taskbar, find and right-click its system tray icon and left-click on `Exit`
 
 ## Contributing
 Anything meaningful would be great! Make sure the checks are passing, and there are no reasons to deny your pull request.
