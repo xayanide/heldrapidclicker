@@ -112,6 +112,7 @@ OnUserLeftMouseButtonPress(*)
     {
         ; Remove the warning for HotkeyInterval
         A_HotkeyInterval := 0
+        ; Enter a loop that continues as long as the Left Mouse Button (LButton) is physically pressed
         loop
         {
             ; Left mouse button is no longer pressed, do nothing
@@ -119,6 +120,7 @@ OnUserLeftMouseButtonPress(*)
             {
                 break
             }
+            ; At the user's current cursor position:
             ; Simulate a single left mouse button press (Pressed down)
             DllCall "mouse_event", "UInt", 0x02
             ; Simulate a single left mouse button release (Released up)
@@ -127,7 +129,7 @@ OnUserLeftMouseButtonPress(*)
             ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
             Sleep config["CLICK_INTERVAL"]
         }
-        ; Ends the function here to not touch the fallback method
+        ; End the function here to not touch the fallback method
         return
     }
     ; Fall back to standard AHK method
