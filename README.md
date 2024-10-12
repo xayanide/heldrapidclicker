@@ -28,6 +28,8 @@ There are several methods to install these kind of scripts from GitHub; however,
 
 https://github.com/xayanide/momentary-switch-rapid-clicker-macro/releases/latest/download/momentary-switch-rapid-clicker-macro.ahk
 
+**2.** Proceed to [Usage](#usage) section.
+
 > This method involves creating and saving a new file to the location you want.
 
 **1.** Copy everything, all the code from this link
@@ -52,10 +54,13 @@ https://raw.githubusercontent.com/xayanide/momentary-switch-rapid-clicker-macro/
 > - There are keyboard shortcuts to `Save` or `Save as` text documents.
 > - **.ahk** is the file extension for AutoHotkey files.
 
+**6.** Proceed to [Usage](#usage) section.
+
 > [!NOTE]
 > Please do not confuse `Save it as` from `Save`. 
 > - If you’re working on a document or file that has already been saved previously, selecting `Save` will overwrite the current version of that file with your new changes.
 > - When you select `Save As` the application will prompt you to specify a new file name and location, allowing you to create a copy of the file or overwrite an existing file.
+
 
 ## Usage
 
