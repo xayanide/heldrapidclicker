@@ -168,7 +168,7 @@ OnMacroToggle(*)
         return
     }
     ; If the macro is now toggled OFF
-    ; Undefine (disable) the left mouse button hotkey
+    ; Suspend (disable) the left mouse button hotkey
     ; This stops OnUserLeftMouseButtonPress from running when the user clicks the left mouse button
     ; Reset A_HotkeyInterval back to default
     A_HotkeyInterval := 2000
