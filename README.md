@@ -60,7 +60,8 @@ This method involves creating and saving a new file to the location you want.
 **Using the script**
 
 **1.** Toggle it on and off by pressing the keyboard combination `CTRL + E`. This is configurable.
-**2.** *Hold press your left mouse button.
+
+**2.** Hold press your left mouse button.
 > [!WARNING]
 > - Be cautious on where you click while the macro is toggled on!
 
