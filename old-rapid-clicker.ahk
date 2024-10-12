@@ -5,7 +5,7 @@
 ; - The hotkeys are always defined for as long as the script runs.
 ; This also means the script actively listens for Left Mouse Button presses even when the macro is toggled on or off, it is not a problem however because I set it to do nothing if the macro is toggled off.
 ; - No system tray icon and system tray icon tooltip
-; It still gets the job done though and is much more simpler
+; It still gets the job done though and is much more simple
 
 #Requires AutoHotkey v2.0 64-bit
 #SingleInstance Prompt
