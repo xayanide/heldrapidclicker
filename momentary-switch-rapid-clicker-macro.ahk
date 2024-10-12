@@ -71,7 +71,7 @@ UpdateSystemTrayIcon()
 }
 
 ; Updates the script's system tray icon tooltip text
-; Can be seen when the hovers over the scritp's system tray icon
+; Can be seen when user the hovers over the scripts's system tray icon
 UpdateSystemTrayIconTooltip()
 {
     ; Update system tray icon tooltip text based on the current state, hover on the system tray icon to see this
