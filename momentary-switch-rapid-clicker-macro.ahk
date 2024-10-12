@@ -121,9 +121,9 @@ OnUserLeftMouseButtonPress(*)
                 break
             }
             ; Simulate a single left mouse button press (Pressed down)
-            DllCall("mouse_event", "UInt", 0x02)
+            DllCall "mouse_event", "UInt", 0x02
             ; Simulate a single left mouse button release (Released up)
-            DllCall("mouse_event", "UInt", 0x04)
+            DllCall "mouse_event", "UInt", 0x04
             ; Wait for the configured interval between clicks.
             ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
             Sleep config["CLICK_INTERVAL"]
