@@ -1,4 +1,4 @@
-; Momentary Switch Rapid Clicker Macro v1.0.2
+; Momentary Switch Rapid Clicker Macro
 ; A straightforward toggleable AutoHotkey v2.0 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
 ; Warning: Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
@@ -7,6 +7,7 @@
 #Requires AutoHotkey v2.0 64-bit
 ; A directive to prompt if there is already a running instance, so that only one instance of this script can be run at the same time
 #SingleInstance Prompt
+version := "v1.0.2"
 
 ; --------------------
 ; Configuration
@@ -74,7 +75,7 @@ UpdateSystemTrayIcon()
 UpdateSystemTrayIconTooltip()
 {
     ; Update system tray icon tooltip text based on the current state, hover on the system tray icon to see this
-    A_IconTip := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro" : "[OFF] Momentary Switch Rapid Clicker Macro"
+    A_IconTip := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro " version "" : "[OFF] Momentary Switch Rapid Clicker Macro " version ""
 }
 
 ; Display a tooltip text at the bottom right of the user's cursor to indicate the macro's new state
@@ -175,15 +176,63 @@ OnMacroToggle(*)
     Hotkey "~LButton", OnUserLeftMouseButtonPress, "Off"
 }
 
+; Displays a neat startup message box with the applied settings
+ShowStartupMsgBox()
+{
+    local mainText := "Momentary Switch Rapid Clicker Macro " version ""
+        . "`n---------------------------"
+        . "`nCurrent settings:"
+        . "`n[Hotkey to Toggle Macro]"
+        . "`n" config["MACRO_HOTKEY"]
+        . "`n"
+        . "`n[Click Interval]"
+        . "`n" config["CLICK_INTERVAL"] " ms"
+        . "`n"
+        . "`n[Fast Mode Enabled]"
+        . "`n" (config["USE_FAST_MODE"] ? "Yes" : "No")
+
+    if (config["CLICK_INTERVAL"] <= 0 || (config["USE_FAST_MODE"] && config["CLICK_INTERVAL"] <= 0))
+    {
+        ; Append a warning text to the main text
+        mainText .= "`n`n[WARNING]`n THESE SETTINGS CAN OVERWHELM YOUR SYSTEM'S INPUTS!"
+        warningText := "Warning: The current settings can overwhelm your system's inputs!"
+            . "`n[Click Interval]"
+            . "`n" config["CLICK_INTERVAL"] " ms"
+            . "`n[Fast Mode Enabled]"
+            . "`n" (config["USE_FAST_MODE"] ? "Yes" : "No")
+            . "`n`nWould you like to continue?"
+        ; Show a separate warning message box
+        userInput := MsgBox(warningText, "Momentary Switch Rapid Clicker Macro " version "", "YesNo")
+        if (userInput = "No")
+        {
+            ExitApp
+        }
+    }
+
+    ; Append the rest of the message
+    mainText .= "`n---------------------------"
+        . "`nInstructions:"
+        . "`n1. Press " config["MACRO_HOTKEY"] " to toggle the macro ON/OFF."
+        . "`n2. When ON, hold down the left mouse button to perform rapid clicks."
+        . "`n"
+        . "`nNotes:"
+        . "`n- Right-click the tray icon to exit the script."
+        . "`n- Use responsibly. Rapid left-clicks may lead to unintended actions."
+        . "`n---------------------------"
+        . "`nScript will continue running in the background."
+        . "`nThis window will automatically close itself in 60 seconds."
+
+    ; Display the main message box
+    MsgBox mainText, "Momentary Switch Rapid Clicker Macro " version "", "T60"
+}
+
 ; On initial start up
 main()
 {
-    global config, states
+    global config, states, version
+    UpdateSystemTrayIcon
+    ShowStartupMsgBox
     ; Define what was configured as the hotkey for the macro
     Hotkey config["MACRO_HOTKEY"], OnMacroToggle, "On"
-    UpdateSystemTrayIcon
-    MsgBox "AutoHotkey macro is now running in the background!`nPlease press " config["MACRO_HOTKEY"] " to toggle it on and off.`n`nTo close the script, right-click its tray icon and click on exit.`n`n`Refer to the AutoHotkey Documentation for reference on setting your own hotkeys:`nhttps://www.autohotkey.com/docs/v2/Hotkeys.htm`nhttps://www.autohotkey.com/docs/v2/KeyList.htm`nThis window will automatically close in 15 seconds.`n- xayanide :)",
-        "Momentary Switch Rapid Clicker",
-        "T15"
 }
 main
