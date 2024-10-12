@@ -1,9 +1,9 @@
-; Momentary Switch Rapid Clicker Macro V2.0
-; A straightforward toggleable AutoHotkey V2.0 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
+; Momentary Switch Rapid Clicker Macro v1.0
+; A straightforward toggleable AutoHotkey v2.0 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
 ; Warning: Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
 
-; A directive for the script to require AutoHotkey 2.0
+; A directive for the script to require AutoHotkey v2.0
 #Requires AutoHotkey v2.0 64-bit
 ; A directive to prompt if there is already a running instance, so that only one instance of this script can be run at the same time
 #SingleInstance Prompt

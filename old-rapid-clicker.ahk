@@ -1,4 +1,4 @@
-; Momentary Switch Rapid Clicker V1.0 - 10/4/2024
+; Momentary Switch Rapid Clicker Macro v0.0.1 - 10/4/2024
 ; NOTE: This is an older version of the script I wrote that does exactly the same thing in the latest version, except:
 ; - There is a delay between toggles because of the Sleep function used for hiding the cursor tooltip after 1 second.
 ; Due to this, the user is always limited to toggling the macro 1 second at a time.
