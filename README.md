@@ -1,7 +1,7 @@
 # Momentary Switch Rapid Clicker Macro
 A straightforward toggleable AutoHotkey V2 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
 > [!WARNING]
-> Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
+> Use this script with caution especially while doing important stuff, always check if the script is active or its macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons you're not aware of and closing applications.
 
 > [!NOTE]
 > Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
