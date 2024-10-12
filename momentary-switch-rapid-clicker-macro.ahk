@@ -60,7 +60,7 @@ states["isTooltipVisible"] := false
 ; This helps visually show to the user whether the macro is on or off
 UpdateSystemTrayIcon()
 {
-    UpdateSystemTrayIconTooltip()
+    UpdateSystemTrayIconTooltip
     local iconNumber := states["isMacroToggle"] ? 233 : 230
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
@@ -74,16 +74,14 @@ UpdateSystemTrayIcon()
 UpdateSystemTrayIconTooltip()
 {
     ; Update system tray icon tooltip text based on the current state, hover on the system tray icon to see this
-    A_IconTip := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro" :
-        "[OFF] Momentary Switch Rapid Clicker Macro"
+    A_IconTip := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro" : "[OFF] Momentary Switch Rapid Clicker Macro"
 }
 
 ; Display a tooltip text at the bottom right of the user's cursor to indicate the macro's new state
 ; Helps the user confirm that the macro state has changed
 ShowCursorTooltip()
 {
-    local tooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" :
-        "[OFF] Momentary Switch Rapid Clicker"
+    local tooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" : "[OFF] Momentary Switch Rapid Clicker"
     ; If the tooltip is already visible
     if (states["isTooltipVisible"])
     {
@@ -117,7 +115,8 @@ OnUserLeftMouseButtonPress(*)
         loop
         {
             ; Left mouse button is no longer pressed, do nothing
-            if (!GetKeyState("LButton", "P")) {
+            if (!GetKeyState("LButton", "P"))
+            {
                 break
             }
             ; Simulate a single left mouse button press (Pressed down)
@@ -153,8 +152,8 @@ OnMacroToggle(*)
     ; If the macro is currently disabled (false), it will be enabled (true)
     states["isMacroToggle"] := !states["isMacroToggle"]
 
-    UpdateSystemTrayIcon()
-    ShowCursorTooltip()
+    UpdateSystemTrayIcon
+    ShowCursorTooltip
 
     ; If the macro is now toggled ON
     if (states["isMacroToggle"])
@@ -180,8 +179,9 @@ main()
     global config, states
     ; Define what was configured as the hotkey for the macro
     Hotkey config["MACRO_HOTKEY"], OnMacroToggle, "On"
-    UpdateSystemTrayIcon()
+    UpdateSystemTrayIcon
     MsgBox "AutoHotkey macro is now running in the background!`nPlease press " config["MACRO_HOTKEY"] " to toggle it on and off.`n`nTo close the script, right-click its tray icon and click on exit.`n`n`Refer to the AutoHotkey Documentation for reference on setting your own hotkeys:`nhttps://www.autohotkey.com/docs/v2/Hotkeys.htm`nhttps://www.autohotkey.com/docs/v2/KeyList.htm`nThis window will automatically close in 15 seconds.`n- xayanide :)",
-        "Momentary Switch Rapid Clicker", "T15"
+        "Momentary Switch Rapid Clicker",
+        "T15"
 }
-main()
+main
