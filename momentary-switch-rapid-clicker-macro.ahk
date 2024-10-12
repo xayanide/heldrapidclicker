@@ -61,7 +61,7 @@ states["isTooltipVisible"] := false
 UpdateSystemTrayIcon()
 {
     UpdateSystemTrayIconTooltip()
-    iconNumber := states["isMacroToggle"] ? 233 : 230
+    local iconNumber := states["isMacroToggle"] ? 233 : 230
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
@@ -82,17 +82,17 @@ UpdateSystemTrayIconTooltip()
 ; Helps the user confirm that the macro state has changed
 ShowCursorTooltip()
 {
-    local TooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" :
+    local tooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" :
         "[OFF] Momentary Switch Rapid Clicker"
     ; If the tooltip is already visible
     if (states["isTooltipVisible"])
     {
         ; Update it immediately
-        ToolTip TooltipText
+        ToolTip tooltipText
         return
     }
     ; Show the tooltip
-    ToolTip TooltipText
+    ToolTip tooltipText
     ; Set a timer to hide the tooltip after 1 second
     SetTimer HideCursorTooltip, 1000
 }
