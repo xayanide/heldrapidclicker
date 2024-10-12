@@ -44,7 +44,7 @@ config["CLICK_INTERVAL"] := 10
 ;   WARNING: SETTING THE COMBINATION ABOVE IS NOT RECOMMENDED AS IT CAN SIGNIFICANTLY OVERWHELM YOUR SYSTEM'S INPUTS
 ;   Default value
 ;   false
-config["USE_FAST_MODE"] := true
+config["USE_FAST_MODE"] := false
 
 ; --------------------
 ; Script
