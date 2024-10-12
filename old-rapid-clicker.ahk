@@ -13,7 +13,7 @@
 ; Removes delays between mouse events
 SetMouseDelay -1
 ; Remove delays between script lines (Disabled, no longer needed in AHK v2.0)
-; Because as of AHK v2, all scripts run at full speed: 
+; Because as of AHK v2, all scripts run at full speed:
 ; https://www.autohotkey.com/boards/viewtopic.php?style=1&t=121942
 ; https://www.autohotkey.com/docs/v2/v2-changes.htm#default-settings
 ; SetBatchLines -1
@@ -22,31 +22,31 @@ isMacroToggle := false
 
 ; Ctrl + E is pressed
 ^E::
-    {
-        global isMacroToggle
-        isMacroToggle := !isMacroToggle
-        ToolTip isMacroToggle ? "[ON] Momentary activation" : "[OFF] Momentary activation"
-        ; Wait for 1 second before removing the cursor tooltip
-        Sleep 1000
-        ToolTip ""
-        return
-    }
+{
+    global isMacroToggle
+    isMacroToggle := !isMacroToggle
+    ToolTip isMacroToggle ? "[ON] Momentary activation" : "[OFF] Momentary activation"
+    ; Wait for 1 second before removing the cursor tooltip
+    Sleep 1000
+    ToolTip ""
+    return
+}
 
 ; Left mouse button is pressed
 ~LButton::
+{
+    global isMacroToggle
+    ; Macro is disabled, do nothing
+    if (!isMacroToggle)
     {
-        global isMacroToggle
-        ; Macro is disabled, do nothing
-        if (!isMacroToggle)
-        {
-            return
-        }
-        ; Macro is enabled
-        ; While the left mouse button is pressed, rapidly perform a left-click again and again
-        ; until the user releases the left mouse button.
-        while GetKeyState("LButton", "P")
-        {
-            Click
-            Sleep 10
-        }
+        return
     }
+    ; Macro is enabled
+    ; While the left mouse button is pressed, rapidly perform a left-click again and again
+    ; until the user releases the left mouse button.
+    while GetKeyState("LButton", "P")
+    {
+        Click
+        Sleep 10
+    }
+}
