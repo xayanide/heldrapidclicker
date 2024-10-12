@@ -22,7 +22,7 @@ A straightforward toggleable AutoHotkey V2 macro script that allows the user to 
 
 There are several methods to install these kind of scripts from GitHub; however, we'll just focus on the most commonly used method.
 
-This method involves creating and saving a new file to the location you want.
+> This method involves creating and saving a new file to the location you want.
 **1.** Copy everything, all the code from this link
 - https://raw.githubusercontent.com/xayanide/momentary-switch-rapid-clicker-macro/refs/heads/master/momentary-switch-rapid-clicker-macro.ahk
  
