@@ -16,7 +16,7 @@ A straightforward toggleable AutoHotkey V2 macro script that allows the user to 
 - https://www.autohotkey.com/docs/v2
 
 ## Prerequisites
-- AutoHotkey V2.0 or later versions.
+- [AutoHotkey v2](https://www.autohotkey.com/v2) or later versions. (Download the installer here: https://www.autohotkey.com/download/ahk-v2.exe)
 
 ## Installation
 
