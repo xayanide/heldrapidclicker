@@ -62,7 +62,7 @@ states["isTooltipVisible"] := false
 UpdateSystemTrayIcon()
 {
     UpdateSystemTrayIconTooltip()
-    local iconNumber := states["isMacroToggle"] ? 233 : 230
+    iconNumber := states["isMacroToggle"] ? 233 : 230
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
@@ -82,7 +82,7 @@ UpdateSystemTrayIconTooltip()
 ; Helps the user confirm that the macro state has changed
 ShowCursorTooltip()
 {
-    local tooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" : "[OFF] Momentary Switch Rapid Clicker"
+    tooltipText := states["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" : "[OFF] Momentary Switch Rapid Clicker"
     ; If the tooltip is already visible
     if (states["isTooltipVisible"])
     {
@@ -179,7 +179,7 @@ OnMacroToggle(*)
 ; Displays a neat startup message box with the applied settings
 ShowStartupMsgBox()
 {
-    local mainText := "Momentary Switch Rapid Clicker Macro " version ""
+    mainText := "Momentary Switch Rapid Clicker Macro " version ""
         . "`n---------------------------"
         . "`nCurrent settings:"
         . "`n[Hotkey to Toggle Macro]"
