@@ -4,7 +4,7 @@
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
 
 ; A directive for the script to require AutoHotkey v2.0
-#Requires AutoHotkey v2.0 64-bit
+#Requires AutoHotkey v2.0
 ; A directive to prompt if there is already a running instance, so that only one instance of this script can be run at the same time
 #SingleInstance Prompt
 version := "v1.0.2"
