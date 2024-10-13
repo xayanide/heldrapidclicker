@@ -51,7 +51,7 @@ config["USE_FAST_MODE"] := false
 ; Script
 ; --------------------
 ; Removes delays between mouse events https://www.autohotkey.com/docs/v2/lib/SetMouseDelay.htm
-SetMouseDelay -1
+SetMouseDelay(-1)
 
 states := Map()
 states["isMacroToggle"] := false
@@ -61,13 +61,13 @@ states["isTooltipVisible"] := false
 ; This helps visually show to the user whether the macro is on or off
 UpdateSystemTrayIcon()
 {
-    UpdateSystemTrayIconTooltip
+    UpdateSystemTrayIconTooltip()
     local iconNumber := states["isMacroToggle"] ? 233 : 230
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
     filePath := "imageres.dll"
-    TraySetIcon filePath, iconNumber
+    TraySetIcon(filePath, iconNumber)
 }
 
 ; Updates the script's system tray icon tooltip text
@@ -87,21 +87,21 @@ ShowCursorTooltip()
     if (states["isTooltipVisible"])
     {
         ; Update it immediately
-        ToolTip tooltipText
+        ToolTip(tooltipText)
         return
     }
     ; Show the tooltip
-    ToolTip tooltipText
+    ToolTip(tooltipText)
     ; Set a timer to hide the tooltip after 1 second
-    SetTimer HideCursorTooltip, 1000
+    SetTimer(HideCursorTooltip, 1000)
 }
 
 ; Hides any tooltip from the user's cursor
 HideCursorTooltip()
 {
-    ToolTip ""
+    ToolTip("")
     ; Remove the timer after hiding the tooltip
-    SetTimer HideCursorTooltip, 0
+    SetTimer(HideCursorTooltip, 0)
 }
 
 ; Handles the behavior when the user presses and holds the Left Mouse Button (LButton)
@@ -123,12 +123,12 @@ OnUserLeftMouseButtonPress(*)
             }
             ; At the user's current cursor position:
             ; Simulate a single left mouse button press (Pressed down)
-            DllCall "mouse_event", "UInt", 0x02
+            DllCall("mouse_event", "UInt", 0x02)
             ; Simulate a single left mouse button release (Released up)
-            DllCall "mouse_event", "UInt", 0x04
+            DllCall("mouse_event", "UInt", 0x04)
             ; Wait for the configured interval between clicks.
             ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
-            Sleep config["CLICK_INTERVAL"]
+            Sleep(config["CLICK_INTERVAL"])
         }
         ; End the function here to not touch the fallback method
         return
@@ -138,10 +138,10 @@ OnUserLeftMouseButtonPress(*)
     while GetKeyState("LButton", "P")
     {
         ; Simulate a single left mouse button click at the user's current cursor position
-        Click
+        Click()
         ; Wait for the configured interval between clicks.
         ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
-        Sleep config["CLICK_INTERVAL"]
+        Sleep(config["CLICK_INTERVAL"])
     }
 }
 
@@ -155,8 +155,8 @@ OnMacroToggle(*)
     ; If the macro is currently disabled (false), it will be enabled (true)
     states["isMacroToggle"] := !states["isMacroToggle"]
 
-    UpdateSystemTrayIcon
-    ShowCursorTooltip
+    UpdateSystemTrayIcon()
+    ShowCursorTooltip()
 
     ; If the macro is now toggled ON
     if (states["isMacroToggle"])
@@ -164,7 +164,7 @@ OnMacroToggle(*)
         ; Define the left mouse button ("~LButton") as a hotkey
         ; This means when the user presses the left mouse button,
         ; the function OnUserLeftMouseButtonPress will be executed
-        Hotkey "~LButton", OnUserLeftMouseButtonPress, "On"
+        Hotkey("~LButton", OnUserLeftMouseButtonPress, "On")
         ; I will just early return here, I don't like using else statements sometimes lol
         return
     }
@@ -173,7 +173,7 @@ OnMacroToggle(*)
     ; This stops OnUserLeftMouseButtonPress from running when the user clicks the left mouse button
     ; Reset A_HotkeyInterval back to default
     A_HotkeyInterval := 2000
-    Hotkey "~LButton", OnUserLeftMouseButtonPress, "Off"
+    Hotkey("~LButton", OnUserLeftMouseButtonPress, "Off")
 }
 
 ; Displays a neat startup message box with the applied settings
@@ -205,7 +205,7 @@ ShowStartupMsgBox()
         userInput := MsgBox(warningText, "Momentary Switch Rapid Clicker Macro " version "", "YesNo")
         if (userInput = "No")
         {
-            ExitApp
+            ExitApp()
         }
     }
 
@@ -223,16 +223,16 @@ ShowStartupMsgBox()
         . "`nThis window will automatically close itself in 60 seconds."
 
     ; Display the main message box
-    MsgBox mainText, "Momentary Switch Rapid Clicker Macro " version "", "T60"
+    MsgBox(mainText, "Momentary Switch Rapid Clicker Macro " version "", "T60")
 }
 
 ; On initial start up
 main()
 {
     global config, states, version
-    UpdateSystemTrayIcon
-    ShowStartupMsgBox
+    UpdateSystemTrayIcon()
+    ShowStartupMsgBox()
     ; Define what was configured as the hotkey for the macro
-    Hotkey config["MACRO_HOTKEY"], OnMacroToggle, "On"
+    Hotkey(config["MACRO_HOTKEY"], OnMacroToggle, "On")
 }
-main
+main()

@@ -11,7 +11,7 @@
 #SingleInstance Prompt
 
 ; Removes delays between mouse events
-SetMouseDelay -1
+SetMouseDelay(-1)
 ; Remove delays between script lines (Disabled, no longer needed in AHK v2.0)
 ; Because as of AHK v2, all scripts run at full speed:
 ; https://www.autohotkey.com/boards/viewtopic.php?style=1&t=121942
@@ -25,10 +25,10 @@ isMacroToggle := false
 {
     global isMacroToggle
     isMacroToggle := !isMacroToggle
-    ToolTip isMacroToggle ? "[ON] Momentary activation" : "[OFF] Momentary activation"
+    ToolTip(isMacroToggle ? "[ON] Momentary activation" : "[OFF] Momentary activation")
     ; Wait for 1 second before removing the cursor tooltip
-    Sleep 1000
-    ToolTip ""
+    Sleep(1000)
+    ToolTip("")
     return
 }
 
@@ -46,7 +46,7 @@ isMacroToggle := false
     ; until the user releases the left mouse button.
     while GetKeyState("LButton", "P")
     {
-        Click
-        Sleep 10
+        Click()
+        Sleep(10)
     }
 }
