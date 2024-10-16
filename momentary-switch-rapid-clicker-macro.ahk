@@ -7,6 +7,9 @@
 #Requires AutoHotkey v2.0
 ; A directive to prompt if there is already a running instance, so that only one instance of this script can be run at the same time
 #SingleInstance Prompt
+ListLines(0)
+KeyHistory(0)
+SetMouseDelay(-1)
 version := "v1.0.2"
 
 ; --------------------
@@ -50,12 +53,12 @@ config["USE_FAST_MODE"] := false
 ; --------------------
 ; Script
 ; --------------------
-; Removes delays between mouse events https://www.autohotkey.com/docs/v2/lib/SetMouseDelay.htm
-SetMouseDelay(-1)
 
 states := Map()
 states["isMacroToggle"] := false
 states["isTooltipVisible"] := false
+states["currentIconNumber"] := 0
+states["currentTooltipText"] := ""
 
 ; Updates the script's system tray icon to reflect the macro's new state
 ; This helps visually show to the user whether the macro is on or off
@@ -67,6 +70,11 @@ UpdateSystemTrayIcon()
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
     filePath := "imageres.dll"
+    if (states["currentIconNumber"] = iconNumber)
+    {
+        return
+    }
+    states["currentIconNumber"] := iconNumber
     TraySetIcon(filePath, iconNumber)
 }
 
@@ -87,11 +95,20 @@ ShowCursorTooltip()
     if (states["isTooltipVisible"])
     {
         ; Update it immediately
+        if (states["currentTooltipText"] = tooltipText)
+        {
+            return
+        }
+        states["currentTooltipText"] := tooltipText
         ToolTip(tooltipText)
         return
     }
-    ; Show the tooltip
-    ToolTip(tooltipText)
+    if (states["currentTooltipText"] != tooltipText)
+    {
+        states["currentTooltipText"] := tooltipText
+        ; Show the tooltip
+        ToolTip(tooltipText)
+    }
     ; Set a timer to hide the tooltip after 1 second
     SetTimer(HideCursorTooltip, 1000)
 }
@@ -99,7 +116,11 @@ ShowCursorTooltip()
 ; Hides any tooltip from the user's cursor
 HideCursorTooltip()
 {
-    ToolTip("")
+    if (states["currentTooltipText"] != "")
+    {
+        states["currentTooltipText"] := ""
+        ToolTip("")
+    }
     ; Remove the timer after hiding the tooltip
     SetTimer(HideCursorTooltip, 0)
 }
@@ -138,7 +159,7 @@ OnUserLeftMouseButtonPress(*)
     while GetKeyState("LButton", "P")
     {
         ; Simulate a single left mouse button click at the user's current cursor position
-        Click()
+        SendInput("{LButton Down}{LButton Up}")
         ; Wait for the configured interval between clicks.
         ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
         Sleep(config["CLICK_INTERVAL"])
