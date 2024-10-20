@@ -5,7 +5,7 @@ on:
 
 jobs:
   semantic-release:
-    name: Bump version and release
+    name: Semantic Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
