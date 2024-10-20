@@ -12,9 +12,6 @@
         [
             "@semantic-release/git",
             {
-                "assets": [
-                    "Anti-AFK.ahk"
-                ],
                 "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
             }
         ],
