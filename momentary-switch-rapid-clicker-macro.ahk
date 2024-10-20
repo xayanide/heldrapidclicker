@@ -82,7 +82,7 @@ updateSystemTrayIcon()
 ; Can be seen when user the hovers over the scripts's system tray icon
 updateSystemTrayIconTooltip()
 {
-    toolTipText := globals["states"]["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro " globals["version"] "" : "[OFF] Momentary Switch Rapid Clicker Macro " globals["version"] ""
+    toolTipText := globals["states"]["isMacroToggle"] ? Format("[ON] Momentary Switch Rapid Clicker Macro {1}", globals["version"]) : Format("[OFF] Momentary Switch Rapid Clicker Macro {1}", globals["version"])
     if (globals["states"]["tray"]["lastIconTooltipText"] = toolTipText)
     {
         return
@@ -207,17 +207,17 @@ onMacroToggle(*)
 ; Displays a neat startup message box with the applied settings
 showStartupMsgBox()
 {
-    mainText := "Momentary Switch Rapid Clicker Macro " globals["version"] ""
+    mainText := Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"])
         . "`n---------------------------"
         . "`nCurrent settings:"
         . "`n[Hotkey to Toggle Macro]"
-        . "`n" globals["config"]["MACRO_HOTKEY"]
+        . Format("`n{1}", globals["config"]["MACRO_HOTKEY"])
         . "`n"
         . "`n[Click Interval]"
-        . "`n" globals["config"]["CLICK_INTERVAL"] " ms"
+        . Format("`n{1} ms", globals["config"]["CLICK_INTERVAL"])
         . "`n"
         . "`n[Fast Mode Enabled]"
-        . "`n" (globals["config"]["USE_FAST_MODE"] ? "Yes" : "No")
+        . Format("`n{1}", (globals["config"]["USE_FAST_MODE"] ? "Yes" : "No")) 
 
     if (globals["config"]["CLICK_INTERVAL"] <= 0 || (globals["config"]["USE_FAST_MODE"] && globals["config"]["CLICK_INTERVAL"] <= 0))
     {
@@ -225,12 +225,12 @@ showStartupMsgBox()
         mainText .= "`n`n[WARNING]`n THESE SETTINGS CAN OVERWHELM YOUR SYSTEM'S INPUTS!"
         warningText := "Warning: The current settings can overwhelm your system's inputs!"
             . "`n[Click Interval]"
-            . "`n" globals["config"]["CLICK_INTERVAL"] " ms"
+            . Format("`n{1}ms", globals["config"]["CLICK_INTERVAL"])
             . "`n[Fast Mode Enabled]"
-            . "`n" (globals["config"]["USE_FAST_MODE"] ? "Yes" : "No")
+            . Format("`n {1}", (globals["config"]["USE_FAST_MODE"] ? "Yes" : "No")) 
             . "`n`nWould you like to continue?"
         ; Show a separate warning message box
-        userInput := MsgBox(warningText, "Momentary Switch Rapid Clicker Macro " globals["version"] "", "YesNo")
+        userInput := MsgBox(warningText, Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"]), "YesNo")
         if (userInput = "No")
         {
             ExitApp()
@@ -251,7 +251,7 @@ showStartupMsgBox()
         . "`nThis window will automatically close itself in 60 seconds."
 
     ; Display the main message box
-    MsgBox(mainText, "Momentary Switch Rapid Clicker Macro " globals["version"] "", "T60")
+    MsgBox(mainText, Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"]), "T60")
 }
 
 ; On initial start up
