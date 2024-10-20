@@ -56,9 +56,9 @@ globals["states"] := Map()
 globals["states"]["isMacroToggle"] := false
 globals["states"]["isTooltipVisible"] := false
 globals["states"]["lastCursorTooltipText"] := ""
-globals["states"]["Tray"] := Map()
-globals["states"]["Tray"]["lastIconTooltipText"] := ""
-globals["states"]["Tray"]["lastIconNumber"] := 0
+globals["states"]["tray"] := Map()
+globals["states"]["tray"]["lastIconTooltipText"] := ""
+globals["states"]["tray"]["lastIconNumber"] := 0
 
 ; Updates the script's system tray icon to reflect the macro's new state
 ; This helps visually show to the user whether the macro is on or off
@@ -70,11 +70,11 @@ updateSystemTrayIcon()
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
     filePath := "imageres.dll"
-    if (globals["states"]["Tray"]["lastIconNumber"] = iconNumber)
+    if (globals["states"]["tray"]["lastIconNumber"] = iconNumber)
     {
         return
     }
-    globals["states"]["Tray"]["lastIconNumber"] := iconNumber
+    globals["states"]["tray"]["lastIconNumber"] := iconNumber
     TraySetIcon(filePath, iconNumber)
 }
 
@@ -83,12 +83,12 @@ updateSystemTrayIcon()
 updateSystemTrayIconTooltip()
 {
     toolTipText := globals["states"]["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker Macro " globals["version"] "" : "[OFF] Momentary Switch Rapid Clicker Macro " globals["version"] ""
-    if (globals["states"]["Tray"]["lastIconTooltipText"] = toolTipText)
+    if (globals["states"]["tray"]["lastIconTooltipText"] = toolTipText)
     {
         return
     }
     ; Update system tray icon tooltip text based on the current state, hover on the system tray icon to see this
-    globals["states"]["Tray"]["lastIconTooltipText"] := toolTipText
+    globals["states"]["tray"]["lastIconTooltipText"] := toolTipText
     A_IconTip := toolTipText
 }
 
