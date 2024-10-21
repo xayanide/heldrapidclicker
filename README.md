@@ -84,5 +84,8 @@ https://raw.githubusercontent.com/xayanide/momentary-switch-rapid-clicker-macro/
 
 **1.** Navigate to your system's taskbar, find and right-click its system tray icon and left-click on `Exit`
 
+## Bannable?
+It depends on where you're using it and the program you're running it on. AutoHotkey doesn't try to hide itself, so be careful if the platform bans macros!
+
 ## Contributing
 Anything meaningful would be great! Make sure the checks are passing, and there are no reasons to deny your pull request.
