@@ -23,15 +23,6 @@ A lightweight and straightforward AutoHotkey v2 script that allows the user to r
 There are several methods to install these kind of scripts from GitHub; however, we'll just focus on the most commonly used methods.
 
 **METHOD 1**
-> Direct download method
-
-**1.** Download the latest script directly from this link
-
-https://github.com/xayanide/heldrapidclicker/releases/latest/download/heldrapidclicker.ahk
-
-**2.** Proceed to [Usage](#usage) section.
-
-**METHOD 2**
 > This method involves creating and saving a new file to the location you want.
 
 **1.** Copy everything, all the code from this link
@@ -62,7 +53,6 @@ https://raw.githubusercontent.com/xayanide/heldrapidclicker/refs/heads/master/he
 > Please do not confuse `Save it as` from `Save`. 
 > - If you’re working on a document or file that has already been saved previously, selecting `Save` will overwrite the current version of that file with your new changes.
 > - When you select `Save As` the application will prompt you to specify a new file name and location, allowing you to create a copy of the file or overwrite an existing file.
-
 
 ## Usage
 
