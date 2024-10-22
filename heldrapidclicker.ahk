@@ -9,7 +9,7 @@
 ; ListLines(0)
 
 global globals := Map()
-globals["version"] := "v1.0.3"
+globals["version"] := "v1.0.4"
 
 ; --------------------
 ; Configuration
