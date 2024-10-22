@@ -189,7 +189,7 @@ onMacroToggle(*)
         ; Define the left mouse button ("~LButton") as a hotkey
         ; This means when the user presses the left mouse button,
         ; the function onUserLeftMouseButtonPress will be executed
-        Hotkey("~LButton", onUserLeftMouseButtonPress, "On")
+        Hotkey("~$LButton", onUserLeftMouseButtonPress, "On")
         ; I will just early return here, I don't like using else statements sometimes lol
         return
     }
@@ -201,7 +201,7 @@ onMacroToggle(*)
     ; If the macro is now toggled OFF
     ; Suspend (disable) the left mouse button hotkey
     ; This stops onUserLeftMouseButtonPress from running when the user clicks the left mouse button
-    Hotkey("~LButton", onUserLeftMouseButtonPress, "Off")
+    Hotkey("~$LButton", onUserLeftMouseButtonPress, "Off")
 }
 
 ; Displays a neat startup message box with the applied settings

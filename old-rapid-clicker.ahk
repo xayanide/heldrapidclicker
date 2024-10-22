@@ -33,7 +33,7 @@ isMacroToggle := false
 }
 
 ; Left mouse button is pressed
-~LButton::
+~$LButton::
 {
     global isMacroToggle
     ; Macro is disabled, do nothing
