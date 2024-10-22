@@ -27,7 +27,7 @@ There are several methods to install these kind of scripts from GitHub; however,
 
 **1.** Download the latest script directly from this link
 
-https://github.com/xayanide/momentary-switch-rapid-clicker-macro/releases/latest/download/momentary-switch-rapid-clicker-macro.ahk
+https://github.com/xayanide/heldrapidclicker/releases/latest/download/heldrapidclicker.ahk
 
 **2.** Proceed to [Usage](#usage) section.
 
@@ -36,7 +36,7 @@ https://github.com/xayanide/momentary-switch-rapid-clicker-macro/releases/latest
 
 **1.** Copy everything, all the code from this link
 
-https://raw.githubusercontent.com/xayanide/momentary-switch-rapid-clicker-macro/refs/heads/master/momentary-switch-rapid-clicker-macro.ahk
+https://raw.githubusercontent.com/xayanide/heldrapidclicker/refs/heads/master/heldrapidclicker.ahk
 
 **2.** Open up `Notepad`, `Notepad++` or any other text editor you're comfortable using.
 
