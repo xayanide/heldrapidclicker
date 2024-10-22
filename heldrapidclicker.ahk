@@ -164,7 +164,7 @@ onUserLeftMouseButtonPress(*)
     while GetKeyState("LButton", "P")
     {
         ; Simulate a single left mouse button click at the user's current cursor position
-        SendInput("{LButton Down}{LButton Up}")
+        Send("{LButton Down}{LButton Up}")
         ; Wait for the configured interval between clicks.
         ; The delay duration is set based on the user-defined value in config["CLICK_INTERVAL"]
         Sleep(globals["config"]["CLICK_INTERVAL"])
