@@ -30,16 +30,6 @@ globals["config"] := Map()
 ;   ^e
 globals["config"]["MACRO_HOTKEY"] := "^e"
 
-; RAPID_CLICK_HOTKEY (String)
-;   The key or button to hold for initiating rapid left clicks.
-;   You can set your own hotkey here
-;   Refer to these links:
-;   https://www.autohotkey.com/docs/v2/Hotkeys.htm
-;   https://www.autohotkey.com/docs/v2/KeyList.htm
-;   Default value
-;   LButton
-globals["config"]["RAPID_CLICK_HOTKEY"] := "LButton"
-
 ; CLICK_INTERVAL (Number, Milliseconds)
 ;   The delay in between left clicks when the left mouse button is held.
 ;   Recommended values are 5 or 10. It's a good balance.
@@ -141,20 +131,20 @@ hideCursorTooltip()
     }
 }
 
-; Handles the behavior when the user presses and holds the RAPID_CLICK_HOTKEY
+; Handles the behavior when the user presses and holds the left mouse button
 ; It simulates repeated left-clicks while the button is held down, with the configured delay between clicks
-onHoldButtonPress(*)
+onLButtonPress(*)
 {
     ; Use a faster method by directly accessing the mouse event API of Windows if "USE_FAST_MODE" is enabled
     if (globals["config"]["USE_FAST_MODE"])
     {
         ; Remove the warning for HotkeyInterval
         A_HotkeyInterval := 0
-        ; Enter a loop that continues as long as the RAPID_CLICK_HOTKEY is physically pressed
+        ; Enter a loop that continues as long as the left mouse button is physically pressed
         loop
         {
             ; Left mouse button is no longer pressed, do nothing
-            if (!GetKeyState(globals["config"]["RAPID_CLICK_HOTKEY"], "P"))
+            if (!GetKeyState("LButton", "P"))
             {
                 break
             }
@@ -171,8 +161,8 @@ onHoldButtonPress(*)
         return
     }
     ; Fall back to standard AHK method
-    ; Enter a loop that continues as long as the RAPID_CLICK_HOTKEY is physically pressed
-    while GetKeyState(globals["config"]["RAPID_CLICK_HOTKEY"], "P")
+    ; Enter a loop that continues as long as the left mouse button is physically pressed
+    while GetKeyState("LButton", "P")
     {
         ; Simulate a single left mouse button click at the user's current cursor position
         SendInput("{LButton Down}{LButton Up}")
@@ -184,7 +174,7 @@ onHoldButtonPress(*)
 
 ; Handles the behavior when the user presses the macro's configured hotkey
 ; It toggles the macro's state between ON and OFF, updates visual feedback like the system tray icon,
-; and sets or removes the configured RAPID_CLICK_HOTKEY based on the new state
+; and sets or removes the left mouse button based on the new state
 onMacroToggle(*)
 {
     ; Toggle the macro state
@@ -194,14 +184,13 @@ onMacroToggle(*)
 
     updateSystemTrayIcon()
     showCursorTooltip(-1000)
-    RAPID_CLICK_HOTKEY := Format("~${1}", globals["config"]["RAPID_CLICK_HOTKEY"])
     ; If the macro is now toggled ON
     if (globals["states"]["isMacroToggle"])
     {
-        ; Define the configured RAPID_CLICK_HOTKEY as a hotkey
-        ; This means when the user presses the RAPID_CLICK_HOTKEY,
-        ; the function onHoldButtonPress will be executed
-        Hotkey(RAPID_CLICK_HOTKEY, onHoldButtonPress, "On")
+        ; Define the left mouse button as a hotkey
+        ; This means when the user presses the left mouse button,
+        ; the function onLButtonPress will be executed
+        Hotkey("~$LButton", onLButtonPress, "On")
         ; I will just early return here, I don't like using else statements sometimes lol
         return
     }
@@ -211,9 +200,9 @@ onMacroToggle(*)
         A_HotkeyInterval := 2000
     }
     ; If the macro is now toggled OFF
-    ; Suspend (disable) the configured RAPID_CLICK_HOTKEY
-    ; This stops onHoldButtonPress from running when the user clicks the RAPID_CLICK_HOTKEY
-    Hotkey(RAPID_CLICK_HOTKEY, onHoldButtonPress, "Off")
+    ; Suspend (disable) the left mouse button hotkey
+    ; This stops onLButtonPress from running when the user clicks the left mouse button
+    Hotkey("~$LButton", onLButtonPress, "Off")
 }
 
 ; Displays a neat startup message box with the applied settings
@@ -222,9 +211,6 @@ showStartupMsgBox()
     mainText := "Current settings:"
         . "`n[Hotkey to Toggle Macro]"
         . Format("`n{1}", globals["config"]["MACRO_HOTKEY"])
-        . "`n"
-        . "`n[Hotkey to Initiate Rapid Left Clicks]"
-        . Format("`n{1}", globals["config"]["RAPID_CLICK_HOTKEY"])
         . "`n"
         . "`n[Click Interval]"
         . Format("`n{1} ms", globals["config"]["CLICK_INTERVAL"])
