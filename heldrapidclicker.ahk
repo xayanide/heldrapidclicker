@@ -37,8 +37,8 @@ globals["config"]["MACRO_HOTKEY"] := "^e"
 ;   https://www.autohotkey.com/docs/v2/Hotkeys.htm
 ;   https://www.autohotkey.com/docs/v2/KeyList.htm
 ;   Default value
-;   ~$LButton
-globals["config"]["RAPID_CLICK_HOTKEY"] := "~$LButton"
+;   LButton
+globals["config"]["RAPID_CLICK_HOTKEY"] := "LButton"
 
 ; CLICK_INTERVAL (Number, Milliseconds)
 ;   The delay in between left clicks when the left mouse button is held.
@@ -194,7 +194,7 @@ onMacroToggle(*)
 
     updateSystemTrayIcon()
     showCursorTooltip(-1000)
-    RAPID_CLICK_HOTKEY := globals["config"]["RAPID_CLICK_HOTKEY"]
+    RAPID_CLICK_HOTKEY := Format("~${1}", globals["config"]["RAPID_CLICK_HOTKEY"])
     ; If the macro is now toggled ON
     if (globals["states"]["isMacroToggle"])
     {
