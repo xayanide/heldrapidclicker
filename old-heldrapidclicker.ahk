@@ -1,4 +1,4 @@
-; Momentary Switch Rapid Clicker Macro v0.0.1 - 10/4/2024
+; 10/4/2024
 ; NOTE: This is an older version of the script I wrote that does exactly the same thing in the latest version, except:
 ; - There is a delay between toggles because of the Sleep function used for hiding the cursor tooltip after 1 second.
 ; Due to this, the user is always limited to toggling the macro 1 second at a time.
@@ -25,7 +25,7 @@ isMacroToggle := false
 {
     global isMacroToggle
     isMacroToggle := !isMacroToggle
-    ToolTip(isMacroToggle ? "[ON] Momentary activation" : "[OFF] Momentary activation")
+    ToolTip(isMacroToggle ? "[ON] HeldRapidClicker" : "[OFF] HeldRapidClicker")
     ; Wait for 1 second before removing the cursor tooltip
     Sleep(1000)
     ToolTip("")
