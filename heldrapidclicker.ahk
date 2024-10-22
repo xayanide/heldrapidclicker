@@ -60,8 +60,6 @@ globals["config"]["CLICK_INTERVAL"] := 1
 ;   false
 globals["config"]["USE_FAST_MODE"] := true
 
-
-
 ; --------------------
 ; Script
 ; --------------------
