@@ -1,8 +1,8 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Prompt
 ; HeldRapidClicker
-; A lightweight and straightforward AutoHotkey v2 script that allows the user to rapidly perform left-clicks while holding the left mouse button.
-; It also includes a hotkey to toggle the macro on and off.
+;   A lightweight and straightforward AutoHotkey v2 script that allows the user to rapidly perform left-clicks while holding the left mouse button.
+;   It also includes a hotkey to toggle the macro on and off.
 ; Warning: Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
 
@@ -13,8 +13,8 @@ globals["version"] := "v1.0.4"
 
 ; --------------------
 ; Configuration
+;   For the configuration changes to take effect, reload or restart the script.
 ; --------------------
-; For the configuration changes to take effect, reload or restart the script.
 
 globals["config"] := Map()
 
