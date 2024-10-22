@@ -1,7 +1,8 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Prompt
 ; HeldRapidClicker
-; A straightforward toggleable AutoHotkey v2.0 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
+; A lightweight and straightforward AutoHotkey v2 script that allows the user to rapidly perform left-clicks while holding the left mouse button.
+; It also includes a hotkey to toggle the macro on and off.
 ; Warning: Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
 
@@ -36,7 +37,7 @@ globals["config"]["MACRO_HOTKEY"] := "^e"
 ;   Reference https://www.autohotkey.com/docs/v2/lib/Sleep.htm
 ;   Default value
 ;   10
-globals["config"]["CLICK_INTERVAL"] := 10
+globals["config"]["CLICK_INTERVAL"] := 0
 
 ; USE_FAST_MODE (Boolean)
 ;   Enabling this will use another method to simulate clicks through direct use of the mouse event API of Windows.
@@ -207,9 +208,7 @@ onMacroToggle(*)
 ; Displays a neat startup message box with the applied settings
 showStartupMsgBox()
 {
-    mainText := Format("HeldRapidClicker {1}", globals["version"])
-        . "`n---------------------------"
-        . "`nCurrent settings:"
+    mainText := "Current settings:"
         . "`n[Hotkey to Toggle Macro]"
         . Format("`n{1}", globals["config"]["MACRO_HOTKEY"])
         . "`n"
@@ -238,7 +237,7 @@ showStartupMsgBox()
     }
 
     ; Append the rest of the message
-    mainText .= "`n---------------------------"
+    mainText .= "`n"
         . "`nInstructions:"
         . "`n1. Press " globals["config"]["MACRO_HOTKEY"] " to toggle the macro ON/OFF."
         . "`n2. When ON, hold down the left mouse button to perform rapid clicks."
@@ -246,7 +245,7 @@ showStartupMsgBox()
         . "`nNotes:"
         . "`n- Right-click the tray icon to exit the script."
         . "`n- Use responsibly. Rapid left-clicks may lead to unintended actions."
-        . "`n---------------------------"
+        . "`n"
         . "`nScript will continue running in the background."
         . "`nThis window will automatically close itself in 60 seconds."
 
