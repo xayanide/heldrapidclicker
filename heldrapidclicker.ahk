@@ -253,8 +253,8 @@ showStartupMsgBox()
     ; Append the rest of the message
     mainText .= "`n"
         . "`nInstructions:"
-        . "`n1. Press " globals["config"]["MACRO_HOTKEY"] " to toggle the macro ON/OFF."
-        . "`n2. When ON, hold down the left mouse button to perform rapid clicks."
+        . Format("`n1. Press {1} to toggle the macro ON/OFF.", globals["config"]["MACRO_HOTKEY"])
+        . Format("`n2. When macro is ON, hold down {1} to perform rapid clicks.", globals["config"]["RAPID_CLICK_HOTKEY"])
         . "`n"
         . "`nNotes:"
         . "`n- Right-click the tray icon to exit the script."
