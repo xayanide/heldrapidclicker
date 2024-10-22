@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Prompt
-; Momentary Switch Rapid Clicker Macro
+; HeldRapidClicker
 ; A straightforward toggleable AutoHotkey v2.0 macro script that allows the user to rapidly perform left-clicks as long as the left mouse button is held down.
 ; Warning: Use this script with caution, always check if the macro is turned on or off. Rapid left-clicks may lead to unintended actions, such as accidentally clicking buttons.
 ; Disclaimer: I am not responsible for any consequences that may arise from the use of my script.
@@ -82,7 +82,7 @@ updateSystemTrayIcon()
 ; Can be seen when user the hovers over the scripts's system tray icon
 updateSystemTrayIconTooltip()
 {
-    toolTipText := globals["states"]["isMacroToggle"] ? Format("[ON] Momentary Switch Rapid Clicker Macro {1}", globals["version"]) : Format("[OFF] Momentary Switch Rapid Clicker Macro {1}", globals["version"])
+    toolTipText := globals["states"]["isMacroToggle"] ? Format("[ON] HeldRapidClicker {1}", globals["version"]) : Format("[OFF] HeldRapidClicker {1}", globals["version"])
     if (globals["states"]["tray"]["lastIconTooltipText"] = toolTipText)
     {
         return
@@ -96,7 +96,7 @@ updateSystemTrayIconTooltip()
 ; Helps the user confirm that the macro state has changed
 showCursorTooltip(duration)
 {
-    tooltipText := globals["states"]["isMacroToggle"] ? "[ON] Momentary Switch Rapid Clicker" : "[OFF] Momentary Switch Rapid Clicker"
+    tooltipText := globals["states"]["isMacroToggle"] ? "[ON] HeldRapidClicker" : "[OFF] HeldRapidClicker"
     ; If the tooltip is already visible
     if (globals["states"]["isTooltipVisible"])
     {
@@ -207,7 +207,7 @@ onMacroToggle(*)
 ; Displays a neat startup message box with the applied settings
 showStartupMsgBox()
 {
-    mainText := Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"])
+    mainText := Format("HeldRapidClicker {1}", globals["version"])
         . "`n---------------------------"
         . "`nCurrent settings:"
         . "`n[Hotkey to Toggle Macro]"
@@ -230,7 +230,7 @@ showStartupMsgBox()
             . Format("`n {1}", (globals["config"]["USE_FAST_MODE"] ? "Yes" : "No")) 
             . "`n`nWould you like to continue?"
         ; Show a separate warning message box
-        userInput := MsgBox(warningText, Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"]), "YesNo")
+        userInput := MsgBox(warningText, Format("HeldRapidClicker {1}", globals["version"]), "YesNo")
         if (userInput = "No")
         {
             ExitApp()
@@ -251,7 +251,7 @@ showStartupMsgBox()
         . "`nThis window will automatically close itself in 60 seconds."
 
     ; Display the main message box
-    MsgBox(mainText, Format("Momentary Switch Rapid Clicker Macro {1}", globals["version"]), "T60")
+    MsgBox(mainText, Format("HeldRapidClicker {1}", globals["version"]), "T60")
 }
 
 ; On initial start up
