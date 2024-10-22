@@ -22,7 +22,7 @@ Starting in `v1.0`, the left mouse button (`LButton`) hotkey gets suspended when
 - refactor: rewrap all function calls with parentheses
 
 ## v1.0.3 changes
-- feat: encapsulate global vars
+- refactor: encapsulate global vars
 
 ## v1.0.4
 - fix: remove architecture requirement on old script
