@@ -7,7 +7,7 @@
 ; - No system tray icon and system tray icon tooltip
 ; It still gets the job done though and is much more simple
 
-#Requires AutoHotkey v2.0 64-bit
+#Requires AutoHotkey v2.0
 #SingleInstance Prompt
 
 ; Removes delays between mouse events
