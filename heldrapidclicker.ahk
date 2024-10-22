@@ -223,6 +223,9 @@ showStartupMsgBox()
         . "`n[Hotkey to Toggle Macro]"
         . Format("`n{1}", globals["config"]["MACRO_HOTKEY"])
         . "`n"
+        . "`n[Hotkey to Initiate Rapid Left Clicks]"
+        . Format("`n{1}", globals["config"]["RAPID_CLICK_HOTKEY"])
+        . "`n"
         . "`n[Click Interval]"
         . Format("`n{1} ms", globals["config"]["CLICK_INTERVAL"])
         . "`n"
