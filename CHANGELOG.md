@@ -28,3 +28,4 @@ Starting in `v1.0`, the left mouse button (`LButton`) hotkey gets suspended when
 - fix: remove architecture requirement on old script
 - fix: prevent recursive triggering no matter what
 - refactor: shorter memorable name
+- docs: update
