@@ -64,13 +64,13 @@ updateSystemTrayIcon()
     ; I will be using native Windows icons for this, I want it simple as possible
     ; imageres.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/imageres.html
     ; shell32.dll https://renenyffenegger.ch/development/Windows/PowerShell/examples/WinAPI/ExtractIconEx/shell32.html
-    filePath := "imageres.dll"
+    SYSTEM_TRAY_ICON_FILE_NAME := "imageres.dll"
     if (globalStates["tray"]["lastIconNumber"] = iconNumber)
     {
         return
     }
     globalStates["tray"]["lastIconNumber"] := iconNumber
-    TraySetIcon(filePath, iconNumber)
+    TraySetIcon(SYSTEM_TRAY_ICON_FILE_NAME, iconNumber)
 }
 
 ; Updates the script's system tray icon tooltip text
