@@ -9,13 +9,19 @@
 ; ListLines(0)
 
 version := "v1.0.4"
+globalConfig := Map()
+globalStates := Map()
+globalStates["isMacroToggle"] := false
+globalStates["isTooltipVisible"] := false
+globalStates["lastCursorTooltipText"] := ""
+globalStates["tray"] := Map()
+globalStates["tray"]["lastIconTooltipText"] := ""
+globalStates["tray"]["lastIconNumber"] := 0
 
 ; --------------------
 ; Configuration
 ;   For the configuration changes to take effect, reload or restart the script.
 ; --------------------
-
-globalConfig := Map()
 
 ; MACRO_HOTKEY (String)
 ;   Hotkey to toggle the macro on or off.
@@ -48,18 +54,6 @@ globalConfig["CLICK_INTERVAL"] := 1
 ;   Default value
 ;   false
 globalConfig["USE_FAST_MODE"] := false
-
-; --------------------
-; Script
-; --------------------
-
-globalStates := Map()
-globalStates["isMacroToggle"] := false
-globalStates["isTooltipVisible"] := false
-globalStates["lastCursorTooltipText"] := ""
-globalStates["tray"] := Map()
-globalStates["tray"]["lastIconTooltipText"] := ""
-globalStates["tray"]["lastIconNumber"] := 0
 
 ; Updates the script's system tray icon to reflect the macro's new state
 ; This helps visually show to the user whether the macro is on or off
@@ -180,7 +174,6 @@ onMacroToggle(*)
     ; If the macro is currently enabled (true), it will be disabled (false)
     ; If the macro is currently disabled (false), it will be enabled (true)
     globalStates["isMacroToggle"] := !globalStates["isMacroToggle"]
-
     updateSystemTrayIcon()
     showCursorTooltip(-1000)
     ; If the macro is now toggled ON
