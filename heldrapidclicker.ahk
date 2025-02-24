@@ -25,7 +25,7 @@ globalStates["tray"]["lastIconNumber"] := 0
 
 ; MACRO_HOTKEY (String)
 ;   Hotkey to toggle the macro on or off.
-;   Turning off the macro temporarily suspends RAPID_CLICK_HOTKEY.
+;   Turning off the macro temporarily suspends the hotkey.
 ;   You can set your own hotkey here
 ;   Refer to these links:
 ;   https://www.autohotkey.com/docs/v2/Hotkeys.htm
