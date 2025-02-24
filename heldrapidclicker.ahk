@@ -48,7 +48,7 @@ globalConfig["CLICK_INTERVAL"] := 10
 ; USE_FAST_MODE (Boolean)
 ;   Enabling this will use another method to simulate clicks through direct use of the mouse event API of Windows.
 ;   This setting will still be affected by the value of CLICK_INTERVAL.
-;   To simulate clicks as fast as possible (The only limiting factor is the hardware used):
+;   To simulate clicks as fast as possible which makes the limiting factor the hardware used:
 ;   Set USE_FAST_MODE to true and CLICK_INTERVAL set as 0 or -1.
 ;   WARNING: SETTING THE COMBINATION ABOVE IS NOT RECOMMENDED AS IT CAN SIGNIFICANTLY OVERWHELM YOUR SYSTEM'S INPUTS
 ;   Default value
