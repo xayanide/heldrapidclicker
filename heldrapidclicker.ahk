@@ -43,7 +43,7 @@ globalConfig["MACRO_HOTKEY"] := "^e"
 ;   Reference https://www.autohotkey.com/docs/v2/lib/Sleep.htm
 ;   Default value
 ;   10
-globalConfig["CLICK_INTERVAL"] := 1
+globalConfig["CLICK_INTERVAL"] := 10
 
 ; USE_FAST_MODE (Boolean)
 ;   Enabling this will use another method to simulate clicks through direct use of the mouse event API of Windows.
